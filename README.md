@@ -1,4 +1,5 @@
->[!CAUTION] The only official place you can get Joe from is from this GitHub repository. Anywhere else isn't my responsiblity as it's not owned by me. Online-Safety 101 etc.
+> [!CAUTION]
+> The only official place you can get Joe from is from this GitHub repository. Anywhere else isn't my responsiblity as it's not owned by me. Online-Safety 101 etc.
 
 # ![Joe logo](./joe.png)
 
