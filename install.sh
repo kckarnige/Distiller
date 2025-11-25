@@ -7,13 +7,9 @@ if [ "$(id -u)" -eq 0 ]; then
     exit 1
 fi
 
-rm ~/.local/share/applications/a_soberjoe.desktop
-rm ~/.local/share/applications/0soberjoe.desktop
-rm ~/.local/share/applications/soberjoe.desktop
-
 APP_NAME="Joe"
-APP_ID="a_soberjoe"
-SOBER_FLATPAK_ID="org.vinegarhq.Sober"
+APP_ID="soberjoe"
+SOBER_ID="org.vinegarhq.Sober"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 INSTALL_BIN="$HOME/.local/bin/soberjoe"
@@ -26,7 +22,7 @@ echo "Installing $APP_NAME for user: $USER"
 # 1) Check for Sober (Flatpak)
 # -------------------------------
 if command -v flatpak >/dev/null 2>&1; then
-  if flatpak info "$SOBER_FLATPAK_ID" >/dev/null 2>&1; then
+  if flatpak info "$SOBER_ID" >/dev/null 2>&1; then
     echo "Sober is installed via Flatpak"
   else
     echo "Sober not found! Make sure to install it via Flatpak!"
@@ -98,10 +94,15 @@ else
   echo "xdg-mime not found! Could not register URL handlers!"
 fi
 
+if [ -f "$HOME/.local/share/applications/$SOBER_ID.desktop" ]; then
+  echo "Unregistering Sober as a Roblox handler..."
+  sed -i "/^MimeType=.*x-scheme-handler\/roblox/s/^/#/" "$HOME/.local/share/applications/$SOBER_ID.desktop"
+fi
+
 # Try to update desktop database (optional)
 if command -v update-desktop-database >/dev/null 2>&1; then
   rm ~/.local/share/applications/mimeinfo.cache || true
-  update-desktop-database "$HOME/.local/share/applications" || true
+  update-desktop-database ~/.local/share/applications || true
 fi
 
 echo
