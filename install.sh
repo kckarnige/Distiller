@@ -14,7 +14,7 @@ SOBER_FLATPAK_ID="org.vinegarhq.Sober"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 INSTALL_BIN="$HOME/.local/bin/soberjoe"
 DESKTOP_DIR="$HOME/.local/share/applications"
-DESKTOP_FILE="$DESKTOP_DIR/${APP_ID}.desktop"
+DESKTOP_FILE="$DESKTOP_DIR/0${APP_ID}.desktop"
 
 echo "Installing $APP_NAME for user: $USER"
 
@@ -96,6 +96,7 @@ fi
 
 # Try to update desktop database (optional)
 if command -v update-desktop-database >/dev/null 2>&1; then
+  rm ~/.local/share/applications/mimeinfo.cache || true
   update-desktop-database "$HOME/.local/share/applications" || true
 fi
 
