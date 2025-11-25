@@ -7,6 +7,10 @@ if [ "$(id -u)" -eq 0 ]; then
     exit 1
 fi
 
+rm ~/.local/share/applications/a_soberjoe.desktop
+rm ~/.local/share/applications/0soberjoe.desktop
+rm ~/.local/share/applications/soberjoe.desktop
+
 APP_NAME="Joe"
 APP_ID="a_soberjoe"
 SOBER_FLATPAK_ID="org.vinegarhq.Sober"
