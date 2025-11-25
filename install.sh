@@ -8,13 +8,13 @@ if [ "$(id -u)" -eq 0 ]; then
 fi
 
 APP_NAME="Joe"
-APP_ID="soberjoe"
+APP_ID="a_soberjoe"
 SOBER_FLATPAK_ID="org.vinegarhq.Sober"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 INSTALL_BIN="$HOME/.local/bin/soberjoe"
 DESKTOP_DIR="$HOME/.local/share/applications"
-DESKTOP_FILE="$DESKTOP_DIR/0${APP_ID}.desktop"
+DESKTOP_FILE="$DESKTOP_DIR/${APP_ID}.desktop"
 
 echo "Installing $APP_NAME for user: $USER"
 
@@ -88,8 +88,8 @@ EOF
 # -------------------------------
 if command -v xdg-mime >/dev/null 2>&1; then
   echo "Registering as default Roblox handler for: $USER"
-  xdg-mime default "0${APP_ID}.desktop" x-scheme-handler/roblox || true
-  xdg-mime default "0${APP_ID}.desktop" x-scheme-handler/roblox-player || true
+  xdg-mime default "${APP_ID}.desktop" x-scheme-handler/roblox || true
+  xdg-mime default "${APP_ID}.desktop" x-scheme-handler/roblox-player || true
 else
   echo "xdg-mime not found! Could not register URL handlers!"
 fi
