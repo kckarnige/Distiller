@@ -88,8 +88,8 @@ EOF
 # -------------------------------
 if command -v xdg-mime >/dev/null 2>&1; then
   echo "Registering as default Roblox handler for: $USER"
-  xdg-mime default "${APP_ID}.desktop" x-scheme-handler/roblox || true
-  xdg-mime default "${APP_ID}.desktop" x-scheme-handler/roblox-player || true
+  xdg-mime default "0${APP_ID}.desktop" x-scheme-handler/roblox || true
+  xdg-mime default "0${APP_ID}.desktop" x-scheme-handler/roblox-player || true
 else
   echo "xdg-mime not found! Could not register URL handlers!"
 fi
