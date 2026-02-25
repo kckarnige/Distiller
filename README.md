@@ -1,3 +1,6 @@
+> [!WARNING]
+> This repository is on indefinite hiatus. Set your default Roblox handler in Firefox or FIrefox-based browser to `/bin/kde-open` if it's available on your system.
+
 > [!CAUTION]
 > The only official place you can get Joe from is from this GitHub repository. Anywhere else isn't my responsiblity as it's not owned by me. Online-Safety 101 etc.
 
